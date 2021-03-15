@@ -4,111 +4,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>City Travel</title>
-    <link rel="stylesheet" href="css/index.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
-    <script src="https://kit.fontawesome.com/75ff9ede21.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index.css"/>
 </head>
 
-<!--CSS ville inte sammarbeta med mig i den här uppgiften så fick skriva det som "style" här inne i HTML dokumentet istället.-->
-
-<body style="background-image: url(img/VDAYFI-994x441.jpg); background-size: cover; background-repeat: no-repeat; background-attachment: fixed;">
-
+<body class="body">
     <header>
-        <h1 style="text-align: center; margin: auto; padding: 5%;" class="display-2 fw-normal">City Travel <i class="fas fa-plane"></i></h1>
+        <h1 class="header">City Travel</h1>        
     </header>
-    <main> 
+
+    <nav>
         <!--Sökbaren-->
-        <div class="container" id="searchWindow">
+        <input id="search" type="text" name="search" placeholder="Search City...">
+        <!--Sökknappen-->
+        <button id="btn" type="submit">Search</button>
 
-            <!--Sökknappen med ett förstoringsglas -->
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="search-city" name="q">
-                <button class="btn btn-outline-dark" type="submit" id="searchbtn"><i class="fas fa-search"></i></button>
-            </form>
+        <div id="checkbox">
+            <!--Väder checkbox-->
+            <input type="checkbox" name="travel-information1" id="onlyWeather">
+            <label for="travel-information1">Only Weather</label>
+            
+            <!--Atractions checkbox-->
+            <input type="checkbox" name="travel-information2" id="onlyAttraction">
+            <label for="travel-information2">Only Attractions</label>
+        </div>
+    </nav>
 
-            <!--Dem 3 olika sökalternativen -->
-
-            <!--Väder-->
-            <div style="margin-top: 2%;" class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="onlyWeather" value="weather"> 
-                <label class="form-check-label" for="onlyWeather">Only Weather <i class="fas fa-cloud-sun-rain"></i></label>
-            </div>
-
-            <!--Sevärdigheter -->
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="onlyAttrcations" value="attractions"> 
-                <label class="form-check-label" for="onlyAttrcations">Only Attrcations <i class="fas fa-map-marked-alt"></i></label>
-            </div>
-
-            <!--Alfabetisk ordning -->
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="filterAlphabetically" value="alphabetically"> 
-                <label class="form-check-label" for="filterAlphabetically">Filter Alphabetically <i class="fas fa-sort-alpha-down"></i></label>
+    <main>
+        <div id="weather">
+            <div id="weathers">
+                <p id="cityName"></p>
+                <p id="weatherToday"></p>
             </div>
         </div>
-        
-        <p id="error"></p>
-
-        <div class="container">
-            
-            <!--Stadsvädret-->
-            <div class="row align-items-center">
-                <h1 style="margin-top: 3%; text-align: center;" id="city">City</h1>
-                <div class="card border-dark mb-3" style="max-width: 20%; margin: auto; margin-top: 3%; position: relative;">
-                    <div class="card-body text-dark">
-                        <p class="card-day" id="day"></p>
-                        <p class="card-weather" id="weather"></p>
-                        <p class="card-temp" id="temp"></p>
-                        <p class="card-dedesciription" id="desciription"></p>
-                    </div>
-                </div>
+        <div id="venue">
+            <div id="venues1">
+                <img src="" alt="">
+                <p id="venuesUrl1"></p>
             </div>
-
-            <!--Top Sevärdigheterna -->
-            <div class="row align-items-center">
-
-                <h1 style="margin-top: 5%; text-align: center;">Top Attractions</h1>
-
-                <!--Sevärdighets ruta 1 -->
-                <div class="card border-dark mb-3" style="max-width: 20%; margin: auto; margin-top: 2%; position: relative;">
-                    <div class="card-body text-dark">
-                        <p class="card-title1" id="name"></p>
-                        <p class="card-adress1" id="adress"></p>
-                        <p class="card-text1" id="desciription"></p>
-                    </div>
-                </div>
-
-                <!--Sevärdighets ruta 2 -->
-                <div id="box2" class="card border-dark mb-3" style="max-width: 20%; margin: auto; margin-top: 2%; position: relative;">
-                    <div class="card-body text-dark">
-                        <p class="card-title2" id="name"></p>
-                        <p class="card-adress2" id="adress"></p>
-                        <p class="card-text2" id="desciription"></p>
-                    </div>
-                </div>
-
-                <!--Sevärdighets ruta 3 -->
-                <div id="box3" class="card border-dark mb-3" style="max-width: 20%; margin: auto; margin-top: 2%; position: relative;">
-                    <div class="card-body text-dark">
-                        <p class="card-title3" id="name"></p>
-                        <p class="card-adress3" id="adress"></p>
-                        <p class="card-text3" id="desciription"></p>
-                    </div>
-                </div>
-
-                <!--Sevärdighets ruta 4 -->
-                <div id="box4" class="card border-dark mb-3" style="max-width: 20%; margin: auto; margin-top: 2%; position: relative;">
-                    <div class="card-body text-dark">
-                        <p class="card-title4" id="name"></p>
-                        <p class="card-adress4" id="adress"></p>
-                        <p class="card-text4" id="desciription"></p>
-                    </div>
-                </div>
+            <div id="venues2">
+                <img src="" alt="">
+                <p id="venuesUrl2"></p>
+            </div>
+            <div id="venues3">
+                <img src="" alt="">
+                <p id="venuesUrl3"></p>
+            </div>
+            <div id="venues4">
+                <img src="" alt="">
+                <p id="venuesUrl4"></p>
             </div>
         </div>
     </main>
-    <script src="main.js"></script> <!--Kopplar samman JavaScript och HTML-->
+    <script src="main.js"></script>
 </body>
 </html>
 

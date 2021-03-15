@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.body{
+    background-image: url(Weather-Blog-Image.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: auto;
+}
+
+.header{
+    display: block;
+    text-align: center;
+    color: antiquewhite;
+    margin: auto;
+}
+
+#btn{   
+    width: 50px;
+    height: 30px;
+    position: relative;
+    color: black;
+}
+
+#checkbox, #onlyWeather{
+    position: relative;
+    margin: auto;
+    margin-left: 425px;
+    
+}
+#onlyAttraction{
+    margin: auto;
+    margin-left: 20px;
+}
+
+#search {
+    margin: auto;
+    text-align: center;
+    color: black;
+    margin-left: 850px;
+    margin-top: 35px;
+    
+}
+
+#weather{
+    text-align: center;
+    margin: auto;
+    margin-top: 6%;
+    color: black;
+    font-size: x-large;
+}
+
+#venue{
+    color:black;
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    font-size: x-large;  
+}
+
+
+.hidden {
+    visibility: hidden;
+  }
